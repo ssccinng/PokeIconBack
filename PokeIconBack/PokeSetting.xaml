@@ -1,0 +1,60 @@
+﻿<Window x:Class="PokeIconBack.PokeSetting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PokeIconBack"
+        mc:Ignorable="d"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        ui:WindowHelper.UseModernWindowStyle="True"
+        Loaded="Window_Loaded"
+        Title="PokeSetting" Height="300" Width="350">
+    <Grid>
+        <StackPanel Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel
+
+                VerticalAlignment="Center"
+                Orientation="Horizontal"
+                >
+                <TextBlock VerticalAlignment="Center"
+                           Width="100">宝可梦名:</TextBlock>
+                <ui:AutoSuggestBox
+
+                    Width="150"
+                x:Name="Item"
+                TextChanged="Item_TextChanged"
+                    
+            >
+
+                </ui:AutoSuggestBox>
+            </StackPanel>
+            <StackPanel
+                Margin="0,10,0,0"
+                VerticalAlignment="Center"
+                Orientation="Horizontal"
+                >
+                <TextBlock VerticalAlignment="Center"
+                           Width="100">图鉴编号:</TextBlock>
+                <TextBox x:Name="aa" TextChanged="aa_TextChanged">
+
+                </TextBox>
+            </StackPanel>
+            <StackPanel
+                Margin="0,10,0,0"
+                VerticalAlignment="Center"
+                Orientation="Horizontal"
+                >
+                <TextBlock VerticalAlignment="Center"
+                           Width="100">太晶属性:</TextBlock>
+                <ComboBox>
+                    
+                </ComboBox>
+            </StackPanel>
+            <Button 
+                Margin="0,20,0,0"
+                Width="100" HorizontalAlignment="Center" Click="Button_Click">
+                确认
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
