@@ -31,10 +31,10 @@ namespace PokeIconBack
 
         private void Item_TextChanged(ModernWpf.Controls.AutoSuggestBox sender, ModernWpf.Controls.AutoSuggestBoxTextChangedEventArgs args)
         {
-            var res = PokeTeamImageTran.TranslateHelper.PokeModels.Select(s => s.Name_Chs).Where(s => s.StartsWith(Item.Text));
+            var res = PokeTeamImageTran.TranslateHelper.PokeModels.Select(s => s.Name_Chs).Where(s => s.Contains(Item.Text));
             if (res.Count() == 0 )
             {
-                res = PokeTeamImageTran.TranslateHelper.PokeModels.Select(s => s.Name_Eng).Where(s => s.StartsWith(Item.Text, StringComparison.CurrentCultureIgnoreCase));
+                res = PokeTeamImageTran.TranslateHelper.PokeModels.Select(s => s.Name_Eng).Where(s => s.Contains(Item.Text, StringComparison.CurrentCultureIgnoreCase));
                 
             }
             else
