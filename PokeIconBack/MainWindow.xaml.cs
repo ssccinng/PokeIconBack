@@ -75,7 +75,7 @@ namespace PokeIconBack
             var poke1 = new PokeSetting($"宝可梦{id}设定");
             if (poke1.ShowDialog() == true)
             {
-                var dd = $"icon{(poke1.Id + 1):0000}";
+                var dd = $"icon{(poke1.Id):0000}";
                 ViewModel.Images[id - 1] = Environment.CurrentDirectory + "/" + (Files.FirstOrDefault(s => s.StartsWith($"img_pokei128\\{dd}")) ?? "img_pokei128/icon0000_f00_s0.png");
             }
         }

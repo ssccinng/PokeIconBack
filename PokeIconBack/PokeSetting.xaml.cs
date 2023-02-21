@@ -43,7 +43,7 @@ namespace PokeIconBack
             }
 
             Item.ItemsSource = res;
-            Id = PokeTeamImageTran.TranslateHelper.PokeModels.FindIndex(s => s.Name_Chs == Item.Text || s.Name_Eng == Item.Text);
+            Id = PokeTeamImageTran.TranslateHelper.PokeModels.FindIndex(s => s.Name_Chs == Item.Text || s.Name_Eng == Item.Text) + 1;
             aa.Text = Id.ToString();
 
         }
