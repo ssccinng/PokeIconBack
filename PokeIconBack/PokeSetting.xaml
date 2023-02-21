@@ -8,8 +8,12 @@
         xmlns:ui="http://schemas.modernwpf.com/2019"
         ui:WindowHelper.UseModernWindowStyle="True"
         Loaded="Window_Loaded"
-        Title="PokeSetting" Height="300" Width="350">
+        Title="PokeSetting" Height="300" Width="450">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
         <StackPanel Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel
 
@@ -55,6 +59,17 @@
                 Width="100" HorizontalAlignment="Center" Click="Button_Click">
                 确认
             </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <Image
+                    Width="{Binding ElementName=ImageSize,Path=Value}"
+                    Height="{Binding ElementName=ImageSize,Path=Value}"
+                x:Name="Poke1"
+                Source="{Binding ViewModel.Images[0]}"
+                Tag="1"
+                MouseDown="Poke1_MouseDown"
+                    ></Image>
         </StackPanel>
     </Grid>
 </Window>
