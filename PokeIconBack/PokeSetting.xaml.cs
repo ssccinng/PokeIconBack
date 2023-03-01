@@ -23,6 +23,7 @@ namespace PokeIconBack
 
         public PokeSetting(string title)
         {
+            DataContext = this;
             Title1 = title;
             InitializeComponent();
             

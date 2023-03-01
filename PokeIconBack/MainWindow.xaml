@@ -53,55 +53,61 @@
             x:Name="panel1"
             Orientation="Horizontal"
             Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <Image
+            <local:AutoGrayImage
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
                     Width="{Binding ElementName=ImageSize,Path=Value}"
                     Height="{Binding ElementName=ImageSize,Path=Value}"
                 x:Name="Poke1"
-                Source="{Binding ViewModel.Images[0]}"
+                Source2="{Binding ViewModel.Images[0]}"
+                IsGary="{Binding ViewModel.Grays[0]}"
                 Tag="1"
                 MouseDown="Poke1_MouseDown"
-                    ></Image>
-            <Image
+                    />
+            <local:AutoGrayImage
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
                     Width="{Binding ElementName=ImageSize,Path=Value}"
                     Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source="{Binding ViewModel.Images[1]}"
+                Source2="{Binding ViewModel.Images[1]}"
+                IsGary="{Binding ViewModel.Grays[1]}"
                          Tag="2"
                 MouseDown="Poke1_MouseDown"
-                    ></Image>
-            <Image
+                    ></local:AutoGrayImage>
+            <local:AutoGrayImage
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
                     Width="{Binding ElementName=ImageSize,Path=Value}"
                     Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source="{Binding ViewModel.Images[2]}"
+                Source2="{Binding ViewModel.Images[2]}"
+                IsGary="{Binding ViewModel.Grays[2]}"
                           Tag="3"
                 MouseDown="Poke1_MouseDown"
-                    ></Image>
-            <Image
+                    ></local:AutoGrayImage>
+            <local:AutoGrayImage
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
                     Width="{Binding ElementName=ImageSize,Path=Value}"
                     Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source="{Binding ViewModel.Images[3]}"
+                Source2="{Binding ViewModel.Images[3]}"
+                IsGary="{Binding ViewModel.Grays[3]}"
                           Tag="4"
                 MouseDown="Poke1_MouseDown"
-                    ></Image>
-            <Image
+                    ></local:AutoGrayImage>
+            <local:AutoGrayImage
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
                     Width="{Binding ElementName=ImageSize,Path=Value}"
                     Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source="{Binding ViewModel.Images[4]}"
+                Source2="{Binding ViewModel.Images[4]}"
+                IsGary="{Binding ViewModel.Grays[4]}"
                           Tag="5"
                 MouseDown="Poke1_MouseDown"
-                    ></Image>
-            <Image
+                    ></local:AutoGrayImage>
+            <local:AutoGrayImage
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
                     Width="{Binding ElementName=ImageSize,Path=Value}"
                     Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source="{Binding ViewModel.Images[5]}"
+                Source2="{Binding ViewModel.Images[5]}"
+                IsGary="{Binding ViewModel.Grays[5]}"
                           Tag="6"
                 MouseDown="Poke1_MouseDown"
-                    ></Image>
+                    ></local:AutoGrayImage>
             <!--<Border  BorderThickness="2" BorderBrush="{DynamicResource SystemControlPageTextBaseHighBrush}"
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
                      Width="{Binding ElementName=ImageSize,Path=Value}"
@@ -112,54 +118,60 @@
             x:Name="panel2"
             
             Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
-            <Image
+            <local:AutoGrayImage
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
                     Width="{Binding ElementName=ImageSize,Path=Value}"
                     Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source="{Binding ViewModel.Images[0]}"
+                Source2="{Binding ViewModel.Images[0]}"
+                IsGary="{Binding ViewModel.Grays[0]}"
                           Tag="1"
                 MouseDown="Poke1_MouseDown"
-                    ></Image>
-            <Image
+                    ></local:AutoGrayImage>
+            <local:AutoGrayImage
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
                     Width="{Binding ElementName=ImageSize,Path=Value}"
                     Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source="{Binding ViewModel.Images[1]}"
+                Source2="{Binding ViewModel.Images[1]}"
+                IsGary="{Binding ViewModel.Grays[1]}"
                           Tag="2"
                 MouseDown="Poke1_MouseDown"
-                    ></Image>
-            <Image
+                    ></local:AutoGrayImage>
+            <local:AutoGrayImage
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
                     Width="{Binding ElementName=ImageSize,Path=Value}"
                     Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source="{Binding ViewModel.Images[2]}"
+                Source2="{Binding ViewModel.Images[2]}"
+                IsGary="{Binding ViewModel.Grays[2]}"
                           Tag="3"
                 MouseDown="Poke1_MouseDown"
-                    ></Image>
-            <Image
+                    ></local:AutoGrayImage>
+            <local:AutoGrayImage
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
                     Width="{Binding ElementName=ImageSize,Path=Value}"
                     Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source="{Binding ViewModel.Images[3]}"
+                Source2="{Binding ViewModel.Images[3]}"
+                IsGary="{Binding ViewModel.Grays[3]}"
                           Tag="4"
                 MouseDown="Poke1_MouseDown"
-                    ></Image>
-            <Image
+                    ></local:AutoGrayImage>
+            <local:AutoGrayImage
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
                     Width="{Binding ElementName=ImageSize,Path=Value}"
                     Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source="{Binding ViewModel.Images[4]}"
+                Source2="{Binding ViewModel.Images[4]}"
+                IsGary="{Binding ViewModel.Grays[4]}"
                           Tag="5"
                 MouseDown="Poke1_MouseDown"
-                    ></Image>
-            <Image
+                    ></local:AutoGrayImage>
+            <local:AutoGrayImage
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
                     Width="{Binding ElementName=ImageSize,Path=Value}"
                     Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source="{Binding ViewModel.Images[5]}"
+                Source2="{Binding ViewModel.Images[5]}"
+                IsGary="{Binding ViewModel.Grays[5]}"
                           Tag="6"
                 MouseDown="Poke1_MouseDown"
-                    ></Image>
+                    ></local:AutoGrayImage>
         </StackPanel>
     </Grid>
 </Window>

@@ -33,7 +33,7 @@ namespace PokeIconBack
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-
+            
             switch (e.Key)
             {
                 case Key.D1:
@@ -82,7 +82,19 @@ namespace PokeIconBack
 
         private void Poke1_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NewMethod(int.Parse((sender as Image).Tag.ToString()));
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                NewMethod(int.Parse((sender as Image).Tag.ToString()));
+
+            }
+            else
+            {
+                //ViewModel.Grays[1] = false;
+                //ViewModel.Images[1] = "111.png";
+                var aa = ViewModel.Grays[int.Parse((sender as Image).Tag.ToString()) - 1];
+                ViewModel.Grays[int.Parse((sender as Image).Tag.ToString()) - 1] = !aa;
+
+            }
         }
 
         private void heng_Checked(object sender, RoutedEventArgs e)

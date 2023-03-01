@@ -8,6 +8,7 @@
         xmlns:ui="http://schemas.modernwpf.com/2019"
         ui:WindowHelper.UseModernWindowStyle="True"
         Loaded="Window_Loaded"
+        d:DataContext="{d:DesignInstance Type=local:PokeSetting}"
         Title="PokeSetting" Height="300" Width="450">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -62,14 +63,14 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <Image
-                    Width="{Binding ElementName=ImageSize,Path=Value}"
-                    Height="{Binding ElementName=ImageSize,Path=Value}"
+            <!--<Image
+                    Width="50"
+                    Height="50"
                 x:Name="Poke1"
                 Source="{Binding ViewModel.Images[0]}"
                 Tag="1"
                 MouseDown="Poke1_MouseDown"
-                    ></Image>
+                    ></Image>-->
         </StackPanel>
     </Grid>
 </Window>

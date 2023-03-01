@@ -13,5 +13,7 @@ namespace PokeIconBack
         public ObservableCollection<string> History { get; set; } = new ObservableCollection<string>();
 
 
+
+
     }
 }
