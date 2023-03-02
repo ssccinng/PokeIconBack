@@ -52,7 +52,7 @@ namespace PokeIconBack
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //Id = PokeTeamImageTran.TranslateHelper.PokeModels.FindIndex(s => s.Name_Chs == Item.Text || s.Name_Eng == Item.Text);
-            if (Id > 0 && Id <= 1008)
+            if (Id >= 0 && Id <= 1008)
             {
                 DialogResult = true;
                 Close();
@@ -67,6 +67,37 @@ namespace PokeIconBack
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Title = Title1?? string.Empty;
+
+
+            foreach (var item in MainViewModel.History)
+            {
+                BitmapImage myBitmapImage = new BitmapImage();
+
+                // BitmapImage.UriSource must be in a BeginInit/EndInit block
+                myBitmapImage.BeginInit();
+                myBitmapImage.UriSource = new Uri(item.path);
+
+                // To save significant application memory, set the DecodePixelWidth or
+                // DecodePixelHeight of the BitmapImage value of the image source to the desired
+                // height or width of the rendered image. If you don't do this, the application will
+                // cache the image as though it were rendered as its normal size rather than just
+                // the size that is displayed.
+                // Note: In order to preserve aspect ratio, set DecodePixelWidth
+                // or DecodePixelHeight but not both.
+                myBitmapImage.DecodePixelWidth = 200;
+                myBitmapImage.EndInit();
+                var img = new Image()
+                {
+                    Width = 100,
+                    Height = 100,
+                    Source = myBitmapImage,
+                };
+                img.MouseDown += (s, e) => { 
+                    //Id = item.id;
+                    aa.Text = item.id.ToString();
+                };
+                DaniList.Children.Add(img);
+            }
         }
 
         private void aa_TextChanged(object sender, TextChangedEventArgs e)
@@ -74,6 +105,27 @@ namespace PokeIconBack
             if (int.TryParse(aa.Text, out int id))
             {
                 Id = id;
+            }
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (Id >= 0 && Id <= 1008)
+                {
+                    DialogResult = true;
+                    Close();
+                }
+                else {
+                    MessageBox.Show("id不合理desu");
+                }
+
+            }
+            else if (e.Key == Key.Escape)
+            {
+                Id = 0;
+                Close();
             }
         }
     }

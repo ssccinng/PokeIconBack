@@ -9,12 +9,13 @@
         ui:WindowHelper.UseModernWindowStyle="True"
         Loaded="Window_Loaded"
         d:DataContext="{d:DesignInstance Type=local:PokeSetting}"
-        Title="PokeSetting" Height="300" Width="450">
+        KeyDown="Window_KeyDown"
+        Title="PokeSetting" Height="600" Width="450">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="100"/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <StackPanel Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel
 
@@ -62,8 +63,9 @@
             </Button>
         </StackPanel>
 
-        <StackPanel Grid.Column="1">
-            <!--<Image
+        <ScrollViewer  Grid.Row="1">
+            <WrapPanel x:Name="DaniList">
+                <!--<Image
                     Width="50"
                     Height="50"
                 x:Name="Poke1"
@@ -71,6 +73,8 @@
                 Tag="1"
                 MouseDown="Poke1_MouseDown"
                     ></Image>-->
-        </StackPanel>
+            </WrapPanel>
+        </ScrollViewer>
+        
     </Grid>
 </Window>

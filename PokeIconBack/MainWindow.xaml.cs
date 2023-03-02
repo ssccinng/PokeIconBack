@@ -33,7 +33,7 @@ namespace PokeIconBack
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            
+            return;
             switch (e.Key)
             {
                 case Key.D1:
@@ -73,6 +73,7 @@ namespace PokeIconBack
         private void NewMethod(int id)
         {
             var poke1 = new PokeSetting($"宝可梦{id}设定");
+            poke1.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             if (poke1.ShowDialog() == true)
             {
                 var dd = $"icon{(poke1.Id):0000}";
