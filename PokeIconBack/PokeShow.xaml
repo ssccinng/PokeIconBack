@@ -45,6 +45,9 @@
                     竖排
                 </CheckBox>
             </StackPanel>
+            <Button Click="Button_Click">
+                重置宝可梦
+            </Button>
         </StackPanel>
         <StackPanel
             x:Name="panel1"

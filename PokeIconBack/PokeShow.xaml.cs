@@ -36,7 +36,7 @@ namespace PokeIconBack
             poke1.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             if (poke1.ShowDialog() == true)
             {
-                var dd = $"icon{(poke1.Id):0000}";
+                var dd = $"icon{(poke1.Id):0000}_f{poke1.FormIdx:00}";
                 string v = Environment.CurrentDirectory + "/" + (Files.FirstOrDefault(s => s.StartsWith($"img_pokei128\\{dd}")) ?? "img_pokei128/icon0000_f00_s0.png");
                 MainViewModel.History.Add((poke1.Id, v));
                 ViewModel.Images[id - 1] = v;
@@ -90,6 +90,16 @@ namespace PokeIconBack
         {
             heng.IsChecked = shu.IsChecked = true;
 
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                ViewModel.Images[i] = Environment.CurrentDirectory + "/" + "img_pokei128/icon0000_f00_s0.png";
+                ViewModel.Grays[i] = false;
+
+            }
         }
     }
 

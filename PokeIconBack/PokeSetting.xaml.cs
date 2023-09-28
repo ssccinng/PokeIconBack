@@ -20,6 +20,7 @@ namespace PokeIconBack
     public partial class PokeSetting : Window
     {
         public string Title1 { get; set; }
+        public int FormIdx { get; set; } = 0;
 
         public PokeSetting(string title)
         {
@@ -52,7 +53,7 @@ namespace PokeIconBack
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //Id = PokeTeamImageTran.TranslateHelper.PokeModels.FindIndex(s => s.Name_Chs == Item.Text || s.Name_Eng == Item.Text);
-            if (Id >= 0 && Id <= 1008)
+            if (Id >= 0 && Id <= 1017)
             {
                 DialogResult = true;
                 Close();
@@ -88,8 +89,8 @@ namespace PokeIconBack
                 myBitmapImage.EndInit();
                 var img = new Image()
                 {
-                    Width = 100,
-                    Height = 100,
+                    Width = 50,
+                    Height = 50,
                     Source = myBitmapImage,
                 };
                 img.MouseDown += (s, e) => { 
@@ -112,7 +113,7 @@ namespace PokeIconBack
         {
             if (e.Key == Key.Enter)
             {
-                if (Id >= 0 && Id <= 1008)
+                if (Id >= 0 && Id <= 1017)
                 {
                     DialogResult = true;
                     Close();
