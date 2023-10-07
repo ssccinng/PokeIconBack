@@ -7,7 +7,9 @@
         d:DataContext="{d:DesignInstance Type=local:PokeShow}"
              mc:Ignorable="d" 
              Loaded="UserControl_Loaded"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             
+             >
 
     <UserControl.Resources>
         <local:WidthToMarginConvert x:Key="WidthToMargin"/>
@@ -48,8 +50,21 @@
             <Button Click="Button_Click">
                 重置宝可梦
             </Button>
+
+            <Button x:Name="Save" Click="Save_Click">保存</Button>
+            <Button x:Name="Load" Click="Load_Click">读取</Button>
+
+            <TextBlock>快速读档</TextBlock>
+            <WrapPanel x:Name="QuickLoad" Orientation="Horizontal"></WrapPanel>
+            
+            
+            <TextBlock Margin="0,25,0,0">快速存档</TextBlock>
+            <WrapPanel x:Name="QuickSave" Orientation="Horizontal"></WrapPanel>
+            
+          
         </StackPanel>
         <StackPanel
+            Margin="50,0,0,0"
             x:Name="panel1"
             Orientation="Horizontal"
             Grid.ColumnSpan="2"
@@ -118,6 +133,7 @@
         <StackPanel
             x:Name="panel2"
             Grid.RowSpan="2"
+            Margin="0,50,0,0"
             
             Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
             <local:AutoGrayImage

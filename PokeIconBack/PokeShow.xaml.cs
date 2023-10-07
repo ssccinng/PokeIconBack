@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -84,11 +86,63 @@ namespace PokeIconBack
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             heng.IsChecked = shu.IsChecked = true;
+
+           
+
+        }
+
+        private void Button_Click1(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             heng.IsChecked = shu.IsChecked = true;
+
+            for (int i = 0; i < 16; i++)
+            {
+                int ii = i;
+                Button button = new Button
+                {
+                    Content = ii,
+                    Width = 40
+                };
+                button.Click += async (s, e) =>
+                {
+                    await File.WriteAllTextAsync($"quicksave_{ii}.json", JsonSerializer.Serialize(ViewModel.Images));
+
+                };
+
+                QuickSave.Children.Add(button);
+
+                Button button1 = new Button
+                {
+                    Content = ii,
+                    Width = 40
+                };
+                button1.Click += async (s, e) =>
+                {
+                    try
+                    {
+                        var data = await File.ReadAllTextAsync($"quicksave_{ii}.json");
+                        var imgdata = JsonSerializer.Deserialize<string[]>(data);
+                        for (global::System.Int32 j = 0; j < imgdata.Length; j++)
+                        {
+                            ViewModel.Images[j] = imgdata[j];
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        //throw;
+                    }
+                    
+                };
+
+                QuickLoad.Children.Add(button1);
+
+            }
 
         }
 
@@ -101,7 +155,58 @@ namespace PokeIconBack
 
             }
         }
+
+        private async void Load_Click(object sender, RoutedEventArgs e)
+        {
+           OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Team|*.json";
+            dialog.Title = "Open an Team File";
+            var res = dialog.ShowDialog();
+            if (res ?? false)
+            {
+                if (dialog.FileName != "")
+                {
+                    try
+                    {
+                        var data = await File.ReadAllTextAsync(dialog.FileName);
+                        var imgdata = JsonSerializer.Deserialize<string[]>(data);
+                        for (global::System.Int32 i = 0; i < imgdata.Length; i++)
+                        {
+                            ViewModel.Images[i] = imgdata[i];    
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message);
+                    }
+
+                }
+
+            }
+
+        }
+
+        private async void Save_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Team|*.json";
+            saveFileDialog1.Title = "Save an Team File";
+            var res = saveFileDialog1.ShowDialog();
+
+            if (res ?? false)
+            {
+                if (saveFileDialog1.FileName != "")
+                {
+                    await File.WriteAllTextAsync(saveFileDialog1.FileName, JsonSerializer.Serialize(ViewModel.Images));
+                    
+                }
+
+            }
+
+        }
     }
 
 
 }
+

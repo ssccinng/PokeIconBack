@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:PokeIconBack"
         mc:Ignorable="d"
         WindowStyle="None"
+        
                 xmlns:ui="http://schemas.modernwpf.com/2019"
         d:DataContext="{d:DesignInstance Type=local:MainWindow}"
         ui:WindowHelper.UseModernWindowStyle="True"
