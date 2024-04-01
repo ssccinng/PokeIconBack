@@ -53,7 +53,7 @@ namespace PokeIconBack
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //Id = PokeTeamImageTran.TranslateHelper.PokeModels.FindIndex(s => s.Name_Chs == Item.Text || s.Name_Eng == Item.Text);
-            if (Id >= 0 && Id <= 1017)
+            if (Id >= 0 && Id <= 1025)
             {
                 DialogResult = true;
                 Close();
