@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ModernWpf.Controls;
+using PokeCommon.Utils;
+using PokemonDataAccess.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,14 +25,28 @@ namespace PokeIconBack
         public string Title1 { get; set; }
         public int FormIdx { get; set; } = 0;
 
-        public PokeSetting(string title)
+        public PokeSetting(string title, PokeShowModel pokeShowModel )
         {
+            PokeShowModel = pokeShowModel;
             DataContext = this;
             Title1 = title;
-            InitializeComponent();
+
             
+            InitializeComponent();
+
+            //Item.Text = PokemonDBInMemory.
         }
-        public int Id { get; set; }
+        public int Id { get; set; } //=> PokeShowModel.Id;
+
+        public PokeShowModel PokeShowModel { get; set; } = new PokeShowModel();
+
+        public PokeType[] Types { get; set; } = PokemonDBInMemory.Types.Prepend(new PokeType { Id = -1, Name_Chs = "(无)" }).ToArray();
+
+        public Item[] Items { get; set; } = PokemonDBInMemory.Items.ToArray();
+
+
+        public PokeType? SelectType { get; set; }
+        public Item? SelectItem { get; set; }
 
         private void Item_TextChanged(ModernWpf.Controls.AutoSuggestBox sender, ModernWpf.Controls.AutoSuggestBoxTextChangedEventArgs args)
         {
@@ -37,7 +54,7 @@ namespace PokeIconBack
             if (res.Count() == 0 )
             {
                 res = PokeTeamImageTran.TranslateHelper.PokeModels.Select(s => s.Name_Eng).Where(s => s.Contains(Item.Text, StringComparison.CurrentCultureIgnoreCase));
-                
+                //AutoSuggestBox
             }
             else
             {
@@ -128,6 +145,31 @@ namespace PokeIconBack
                 Id = 0;
                 Close();
             }
+        }
+
+
+
+        private void Importps_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ItemI_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            var res = PokemonDBInMemory.Items.Where(s => s.Name_Chs.Contains(ItemI.Text));
+            if (res.Count() == 0)
+            {
+           
+                //AutoSuggestBox
+            }
+            else
+            {
+
+            }
+
+            ItemI.ItemsSource = res;
+            //Id = PokeTeamImageTran.TranslateHelper.PokeModels.FindIndex(s => s.Name_Chs == Item.Text || s.Name_Eng == Item.Text) + 1;
+            //aa.Text = Id.ToString();
         }
     }
 }

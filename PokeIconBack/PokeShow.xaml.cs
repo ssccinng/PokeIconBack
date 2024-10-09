@@ -34,14 +34,15 @@ namespace PokeIconBack
 
         private void NewMethod(int id)
         {
-            var poke1 = new PokeSetting($"宝可梦{id}设定");
+            var poke1 = new PokeSetting($"宝可梦{id}设定", ViewModel.Pokes[id - 1]);
+            
             poke1.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             if (poke1.ShowDialog() == true)
             {
                 var dd = $"icon{(poke1.Id):0000}_f{poke1.FormIdx:00}";
                 string v = Environment.CurrentDirectory + "/" + (Files.FirstOrDefault(s => s.StartsWith($"img_pokei128\\{dd}")) ?? "img_pokei128/icon0000_f00_s0.png");
                 MainViewModel.History.Add((poke1.Id, v));
-                ViewModel.Images[id - 1] = v;
+                ViewModel.Pokes[id - 1].Image = v;
             }
         }
 
@@ -110,7 +111,7 @@ namespace PokeIconBack
                 };
                 button.Click += async (s, e) =>
                 {
-                    await File.WriteAllTextAsync($"quicksave_{ii}.json", JsonSerializer.Serialize(ViewModel.Images));
+                    await File.WriteAllTextAsync($"quicksave_{ii}.json", JsonSerializer.Serialize(ViewModel.Pokes));
 
                 };
 
@@ -129,7 +130,7 @@ namespace PokeIconBack
                         var imgdata = JsonSerializer.Deserialize<string[]>(data);
                         for (global::System.Int32 j = 0; j < imgdata.Length; j++)
                         {
-                            ViewModel.Images[j] = imgdata[j];
+                            ViewModel.Pokes[j].Image = imgdata[j];
                         }
                     }
                     catch (Exception)
@@ -150,7 +151,7 @@ namespace PokeIconBack
         {
             for (int i = 0; i < 6; i++)
             {
-                ViewModel.Images[i] = Environment.CurrentDirectory + "/" + "img_pokei128/icon0000_f00_s0.png";
+                ViewModel.Pokes[i].Image = Environment.CurrentDirectory + "/" + "img_pokei128/icon0000_f00_s0.png";
                 ViewModel.Grays[i] = false;
 
             }
@@ -172,7 +173,7 @@ namespace PokeIconBack
                         var imgdata = JsonSerializer.Deserialize<string[]>(data);
                         for (global::System.Int32 i = 0; i < imgdata.Length; i++)
                         {
-                            ViewModel.Images[i] = imgdata[i];    
+                            ViewModel.Pokes[i].Image = imgdata[i];    
                         }
                     }
                     catch (Exception ex)
@@ -198,11 +199,16 @@ namespace PokeIconBack
             {
                 if (saveFileDialog1.FileName != "")
                 {
-                    await File.WriteAllTextAsync(saveFileDialog1.FileName, JsonSerializer.Serialize(ViewModel.Images));
+                    await File.WriteAllTextAsync(saveFileDialog1.FileName, JsonSerializer.Serialize(ViewModel.Pokes));
                     
                 }
 
             }
+
+        }
+
+        private void ImportPs_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

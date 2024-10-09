@@ -13,6 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="G:\CSharpDev\ssccinng\PokeSci\PokeCommon\PokeCommon.csproj" />
+    <ProjectReference Include="G:\CSharpDev\ssccinng\PokeSci\PokemonHomeIcon\PokemonHomeIcon.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="itemnameall.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

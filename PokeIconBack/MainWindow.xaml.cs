@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.DirectoryServices.ActiveDirectory;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -72,13 +73,13 @@ namespace PokeIconBack
 
         private void NewMethod(int id)
         {
-            var poke1 = new PokeSetting($"宝可梦{id}设定");
-            poke1.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            if (poke1.ShowDialog() == true)
-            {
-                var dd = $"icon{(poke1.Id):0000}";
-                ViewModel.Images[id - 1] = Environment.CurrentDirectory + "/" + (Files.FirstOrDefault(s => s.StartsWith($"img_pokei128\\{dd}")) ?? "img_pokei128/icon0000_f00_s0.png");
-            }
+            //var poke1 = new PokeSetting($"宝可梦{id}设定");
+            //poke1.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            //if (poke1.ShowDialog() == true)
+            //{
+            //    var dd = $"icon{(poke1.Id):0000}";
+            //    ViewModel.Pokes[id - 1].Image = Environment.CurrentDirectory + "/" + (Files.FirstOrDefault(s => s.StartsWith($"img_pokei128\\{dd}")) ?? "img_pokei128/icon0000_f00_s0.png");
+            //}
         }
 
         private void Poke1_MouseDown(object sender, MouseButtonEventArgs e)
@@ -98,30 +99,9 @@ namespace PokeIconBack
             }
         }
 
-        private void heng_Checked(object sender, RoutedEventArgs e)
-        {
-            panel1.Visibility = Visibility.Visible;
-        }
-
-        private void heng_Unchecked(object sender, RoutedEventArgs e)
-        {
-            panel1.Visibility = Visibility.Collapsed;
-
-        }
-
-        private void shu_Checked(object sender, RoutedEventArgs e)
-        {
-            panel2.Visibility = Visibility.Visible;
-        }
-
-        private void shu_Unchecked(object sender, RoutedEventArgs e)
-        {
-            panel2.Visibility = Visibility.Collapsed;
-        }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            heng.IsChecked = shu.IsChecked = true;
+
         }
     }
 
@@ -155,5 +135,25 @@ namespace PokeIconBack
             throw new NotImplementedException();
         }
 
+    }
+
+
+    public class MultiplierConverter : IValueConverter
+    {
+        public double Multiplier { get; set; } = 0.5; // 默认倍数
+
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is double width)
+            {
+                return width * Multiplier;
+            }
+            return 0;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

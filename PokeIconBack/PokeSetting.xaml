@@ -13,15 +13,19 @@
         Title="PokeSetting" Height="600" Width="450">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="400"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Margin="10" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="Importps" Margin="0,20,0,0" Click="Importps_Click">导入PS格式（单个）</Button>
+
             <StackPanel
+                Margin="0,10,0,0"
 
                 VerticalAlignment="Center"
                 Orientation="Horizontal"
                 >
+                
                 <TextBlock VerticalAlignment="Center"
                            Width="100">宝可梦名:</TextBlock>
                 <ui:AutoSuggestBox
@@ -63,10 +67,36 @@
                 >
                 <TextBlock VerticalAlignment="Center"
                            Width="100">太晶属性:</TextBlock>
-                <ComboBox>
+                <ComboBox ItemsSource="{Binding Types}" SelectedItem="{Binding SelectType}" SelectedValuePath="Id"
+                          DisplayMemberPath="Name_Chs">
                     
                 </ComboBox>
             </StackPanel>
+
+            <StackPanel
+    Margin="0,10,0,0"
+    VerticalAlignment="Center"
+    Orientation="Horizontal"
+    >
+                <TextBlock VerticalAlignment="Center"
+               Width="100">道具:</TextBlock>
+                <ui:AutoSuggestBox
+                    TextChanged="ItemI_TextChanged"
+                    ItemsSource="{Binding Items}"
+                    DisplayMemberPath="Name_Chs"
+                    IsTextSearchEnabled="True"
+                    TextSearch.Text="密探"
+                    TextSearch.TextPath="Name_Chs"
+                     TextMemberPath="Name_Chs"
+
+        Width="150"
+    x:Name="ItemI"
+        
+>
+
+                </ui:AutoSuggestBox>
+            </StackPanel>
+
             <Button 
                 Margin="0,20,0,0"
                 Width="100" HorizontalAlignment="Center" Click="Button_Click">

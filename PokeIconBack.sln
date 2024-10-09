@@ -5,6 +5,12 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeIconBack", "PokeIconBack\PokeIconBack.csproj", "{DD3F2141-7EB8-4A03-B2C3-DA26BFEF3DF6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokeCommon", "G:\CSharpDev\ssccinng\PokeSci\PokeCommon\PokeCommon.csproj", "{370E76EB-928C-4625-918F-73EBCCC7C04A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonHomeIcon", "G:\CSharpDev\ssccinng\PokeSci\PokemonHomeIcon\PokemonHomeIcon.csproj", "{A155C834-10E0-4136-86B3-6ECC391EF7AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonDataAccess", "G:\CSharpDev\ssccinng\PokeSci\PokemonDataAccess\PokemonDataAccess.csproj", "{9C53500C-BC3D-4AC3-9595-B24CB62E0967}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{DD3F2141-7EB8-4A03-B2C3-DA26BFEF3DF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD3F2141-7EB8-4A03-B2C3-DA26BFEF3DF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD3F2141-7EB8-4A03-B2C3-DA26BFEF3DF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{370E76EB-928C-4625-918F-73EBCCC7C04A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{370E76EB-928C-4625-918F-73EBCCC7C04A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{370E76EB-928C-4625-918F-73EBCCC7C04A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{370E76EB-928C-4625-918F-73EBCCC7C04A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A155C834-10E0-4136-86B3-6ECC391EF7AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A155C834-10E0-4136-86B3-6ECC391EF7AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A155C834-10E0-4136-86B3-6ECC391EF7AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A155C834-10E0-4136-86B3-6ECC391EF7AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C53500C-BC3D-4AC3-9595-B24CB62E0967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C53500C-BC3D-4AC3-9595-B24CB62E0967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C53500C-BC3D-4AC3-9595-B24CB62E0967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C53500C-BC3D-4AC3-9595-B24CB62E0967}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
