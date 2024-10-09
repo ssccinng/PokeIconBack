@@ -26,13 +26,13 @@ namespace PokeIconBack
 
         [ObservableProperty]
         [NotifyPropertyChangedFor("ItemPath")]
-        private int _item = 151;
+        private int _item ;
         [JsonIgnore]
         public string ItemPath => $"{Environment.CurrentDirectory}/HomeIconImage/Item/item{Item:0000}.png";
 
         [ObservableProperty]
         [NotifyPropertyChangedFor("TeraPath")]
-        private string _tera = "fire";
+        private string _tera ;
         [JsonIgnore]
 
         public string TeraPath => $"{Environment.CurrentDirectory}/HomeIconImage/Terastal/icon_terastal_type_{Tera}.png";

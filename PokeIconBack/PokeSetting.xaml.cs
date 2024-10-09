@@ -1,4 +1,6 @@
-﻿using ModernWpf.Controls;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using ModernWpf.Controls;
+using PokeCommon.Models;
 using PokeCommon.Utils;
 using PokemonDataAccess.Models;
 using System;
@@ -20,6 +22,7 @@ namespace PokeIconBack
     /// <summary>
     /// PokeSetting.xaml 的交互逻辑
     /// </summary>
+    [ObservableObject]
     public partial class PokeSetting : Window
     {
         public string Title1 { get; set; }
@@ -36,17 +39,18 @@ namespace PokeIconBack
 
             //Item.Text = PokemonDBInMemory.
         }
-        public int Id { get; set; } //=> PokeShowModel.Id;
+        public int Id { get => PokeShowModel.Id; set => PokeShowModel.Id = value; }
 
         public PokeShowModel PokeShowModel { get; set; } = new PokeShowModel();
 
-        public PokeType[] Types { get; set; } = PokemonDBInMemory.Types.Prepend(new PokeType { Id = -1, Name_Chs = "(无)" }).ToArray();
+        public PokeType[] Types { get; set; } = PokemonDBInMemory.Types.Prepend(new PokeType { Id = -1, Name_Chs = "(无)", Name_Eng = "" }).ToArray();
 
-        public Item[] Items { get; set; } = PokemonDBInMemory.Items.ToArray();
+        public PokeModel[] Items { get; set; } = PokeHomeData.ItemTable.Values.ToArray();
+        public PokeModel[] ItemsS { get; set; } = PokeHomeData.ItemTable.Values.ToArray();
+        [ObservableProperty]
 
-
-        public PokeType? SelectType { get; set; }
-        public Item? SelectItem { get; set; }
+        PokeType? _selectType;
+        public PokeModel? SelectItem { get; set; }
 
         private void Item_TextChanged(ModernWpf.Controls.AutoSuggestBox sender, ModernWpf.Controls.AutoSuggestBoxTextChangedEventArgs args)
         {
@@ -73,6 +77,13 @@ namespace PokeIconBack
             if (Id >= 0 && Id <= 1025)
             {
                 DialogResult = true;
+                PokeShowModel.Tera = SelectType?.Name_Eng?.ToLower();
+                PokeShowModel.Item = SelectItem?.Id ?? 0;
+
+                PokeShowModel.Form = FormIdx;
+
+
+
                 Close();
             }
             else
@@ -85,6 +96,18 @@ namespace PokeIconBack
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Title = Title1?? string.Empty;
+
+            SelectType = Types.FirstOrDefault(s => s.Name_Eng.ToLower() == PokeShowModel.Tera);
+            SelectItem = Items.FirstOrDefault(s => s.Id == PokeShowModel.Item);
+
+            ItemI.Text = SelectItem?.Name_Chs;
+
+            aa.Text = Id.ToString();
+            FormIdx = PokeShowModel.Form;
+            Item.Text = PokemonDBInMemory.Pokemons.Where(s => s.DexId == Id && s.PokeFormId == FormIdx).FirstOrDefault()?.NameChs;
+
+
+
 
 
             foreach (var item in MainViewModel.History)
@@ -156,7 +179,7 @@ namespace PokeIconBack
 
         private void ItemI_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
         {
-            var res = PokemonDBInMemory.Items.Where(s => s.Name_Chs.Contains(ItemI.Text));
+            var res = ItemsS.Where(s => s.Name_Chs.Contains(ItemI.Text));
             if (res.Count() == 0)
             {
            
@@ -168,6 +191,9 @@ namespace PokeIconBack
             }
 
             ItemI.ItemsSource = res;
+
+            SelectItem = res.FirstOrDefault();
+
             //Id = PokeTeamImageTran.TranslateHelper.PokeModels.FindIndex(s => s.Name_Chs == Item.Text || s.Name_Eng == Item.Text) + 1;
             //aa.Text = Id.ToString();
         }

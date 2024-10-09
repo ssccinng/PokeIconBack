@@ -29,7 +29,7 @@
                 <TextBlock VerticalAlignment="Center"
                            Width="100">宝可梦名:</TextBlock>
                 <ui:AutoSuggestBox
-
+                    
                     Width="150"
                 x:Name="Item"
                 TextChanged="Item_TextChanged"
@@ -85,7 +85,6 @@
                     ItemsSource="{Binding Items}"
                     DisplayMemberPath="Name_Chs"
                     IsTextSearchEnabled="True"
-                    TextSearch.Text="密探"
                     TextSearch.TextPath="Name_Chs"
                      TextMemberPath="Name_Chs"
 
