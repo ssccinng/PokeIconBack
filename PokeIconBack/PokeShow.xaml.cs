@@ -116,7 +116,9 @@ namespace PokeIconBack
                 Button button = new Button
                 {
                     Content = ii,
-                    Width = 40
+                    Width = 40,
+                    Foreground = Brushes.White
+
                 };
                 button.Click += async (s, e) =>
                 {
@@ -129,7 +131,8 @@ namespace PokeIconBack
                 Button button1 = new Button
                 {
                     Content = ii,
-                    Width = 40
+                    Width = 40,
+                    Foreground = Brushes.White
                 };
                 button1.Click += async (s, e) =>
                 {

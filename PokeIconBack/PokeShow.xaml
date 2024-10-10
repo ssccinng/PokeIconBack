@@ -41,37 +41,42 @@
 
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <CheckBox x:Name="heng" Foreground="White" Checked="heng_Checked" Unchecked="heng_Unchecked">
-                    横排
+                <CheckBox x:Name="heng"   Checked="heng_Checked" Unchecked="heng_Unchecked">
+                    <TextBlock Foreground="White">横排</TextBlock>
+                    
                 </CheckBox>
-                <CheckBox x:Name="shu"  Foreground="White"  Checked="shu_Checked" Unchecked="shu_Unchecked">
-                    竖排
+                <CheckBox x:Name="shu"  Background="Black"  Checked="shu_Checked" Unchecked="shu_Unchecked">
+
+                    <TextBlock Foreground="White">竖排</TextBlock>
+
                 </CheckBox>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <CheckBox x:Name="太晶" IsChecked="True"  Foreground="White"  Checked="太晶_Checked" Unchecked="太晶_Unchecked">
-                    太晶
+                    <TextBlock Foreground="White">太晶</TextBlock>
+                    
                 </CheckBox>
                 <CheckBox x:Name="it" IsChecked="True" Foreground="White" Checked="it_Checked" Unchecked="it_Unchecked">
-                    道具
+                    <TextBlock Foreground="White">道具</TextBlock>
+                    
                 </CheckBox>
             </StackPanel>
-            <Button Click="Button_Click">
+            <Button Click="Button_Click"  Foreground="White">
                 重置宝可梦
             </Button>
 
-            <Button x:Name="Save" Click="Save_Click">保存</Button>
-            <Button x:Name="Load" Click="Load_Click">读取</Button>
+            <Button x:Name="Save" Foreground="White"  Click="Save_Click">保存</Button>
+            <Button x:Name="Load"   Foreground="White"  Click="Load_Click">读取</Button>
 
-            <TextBlock>快速读档</TextBlock>
+            <TextBlock  Foreground="White">快速读档</TextBlock>
             <WrapPanel x:Name="QuickLoad" Orientation="Horizontal"></WrapPanel>
 
 
-            <TextBlock Margin="0,25,0,0">快速存档</TextBlock>
+            <TextBlock  Foreground="White" Margin="0,25,0,0">快速存档</TextBlock>
             <WrapPanel x:Name="QuickSave" Orientation="Horizontal"></WrapPanel>
 
-            <Button Click="ImportPs_Click" x:Name="ImportPs">导入PS格式</Button>
+            <Button  Foreground="White" Click="ImportPs_Click" x:Name="ImportPs">导入PS格式</Button>
 
 
         </StackPanel>
