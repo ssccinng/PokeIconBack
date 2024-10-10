@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using ModernWpf.Controls;
 using PokeCommon.Models;
+using PokeCommon.PokemonShowdownTools;
 using PokeCommon.Utils;
 using PokemonDataAccess.Models;
 using System;
@@ -26,7 +27,9 @@ namespace PokeIconBack
     public partial class PokeSetting : Window
     {
         public string Title1 { get; set; }
-        public int FormIdx { get; set; } = 0;
+
+        [ObservableProperty]
+         int _formIdx  = 0;
 
         public PokeSetting(string title, PokeShowModel pokeShowModel )
         {
@@ -172,8 +175,27 @@ namespace PokeIconBack
 
 
 
-        private void Importps_Click(object sender, RoutedEventArgs e)
+        private async void Importps_Click(object sender, RoutedEventArgs e)
         {
+
+            var win = new InputPsText();
+            if (win.ShowDialog() == true)
+            {
+                var poke = await PSConverterWithoutDB.ConvertToPokemonAsync(win.PsText);
+
+                if (poke != null)
+                {
+                    Id = poke.MetaPokemon.DexId;
+                    FormIdx = poke.MetaPokemon.PokeFormId;
+                    Item.Text = poke.MetaPokemon.NameChs;
+                    aa.Text = Id.ToString();
+
+                    ItemI.Text = poke.Item?.Name_Chs;
+
+                    SelectType = poke.TreaType;
+
+                }
+            }
 
         }
 
@@ -196,6 +218,18 @@ namespace PokeIconBack
 
             //Id = PokeTeamImageTran.TranslateHelper.PokeModels.FindIndex(s => s.Name_Chs == Item.Text || s.Name_Eng == Item.Text) + 1;
             //aa.Text = Id.ToString();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Id = 0;
+            FormIdx = 0;
+            Item.Text = string.Empty;
+            aa.Text = string.Empty;
+
+            ItemI.Text = string.Empty;
+
+            SelectType = null;
         }
     }
 }

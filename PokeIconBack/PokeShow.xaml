@@ -48,6 +48,15 @@
                     竖排
                 </CheckBox>
             </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <CheckBox x:Name="太晶" IsChecked="True"  Foreground="White"  Checked="太晶_Checked" Unchecked="太晶_Unchecked">
+                    太晶
+                </CheckBox>
+                <CheckBox x:Name="it" IsChecked="True" Foreground="White" Checked="it_Checked" Unchecked="it_Unchecked">
+                    道具
+                </CheckBox>
+            </StackPanel>
             <Button Click="Button_Click">
                 重置宝可梦
             </Button>
@@ -57,8 +66,8 @@
 
             <TextBlock>快速读档</TextBlock>
             <WrapPanel x:Name="QuickLoad" Orientation="Horizontal"></WrapPanel>
-            
-            
+
+
             <TextBlock Margin="0,25,0,0">快速存档</TextBlock>
             <WrapPanel x:Name="QuickSave" Orientation="Horizontal"></WrapPanel>
 
@@ -72,66 +81,223 @@
             Orientation="Horizontal"
             Grid.ColumnSpan="2"
             Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left">
-            <local:AutoGrayImage
-                    Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
-                    Width="{Binding ElementName=ImageSize,Path=Value}"
-                    Height="{Binding ElementName=ImageSize,Path=Value}"
-                x:Name="Poke1"
-                Source2="{Binding ViewModel.Pokes[0].Image}"
-                IsGary="{Binding ViewModel.Grays[0]}"
-                Tag="1"
-                MouseDown="Poke1_MouseDown"
-                    />
-            <local:AutoGrayImage
-                    Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
-                    Width="{Binding ElementName=ImageSize,Path=Value}"
-                    Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source2="{Binding ViewModel.Pokes[1].Image}"
-                IsGary="{Binding ViewModel.Grays[1]}"
-                         Tag="2"
-                MouseDown="Poke1_MouseDown"
-                    ></local:AutoGrayImage>
-            <local:AutoGrayImage
-                    Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
-                    Width="{Binding ElementName=ImageSize,Path=Value}"
-                    Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source2="{Binding ViewModel.Pokes[2].Image}"
-                IsGary="{Binding ViewModel.Grays[2]}"
-                          Tag="3"
-                MouseDown="Poke1_MouseDown"
-                    ></local:AutoGrayImage>
-            <local:AutoGrayImage
-                    Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
-                    Width="{Binding ElementName=ImageSize,Path=Value}"
-                    Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source2="{Binding ViewModel.Pokes[3].Image}"
-                IsGary="{Binding ViewModel.Grays[3]}"
-                          Tag="4"
-                MouseDown="Poke1_MouseDown"
-                    ></local:AutoGrayImage>
-            <local:AutoGrayImage
-                    Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
-                    Width="{Binding ElementName=ImageSize,Path=Value}"
-                    Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source2="{Binding ViewModel.Pokes[4].Image}"
-                IsGary="{Binding ViewModel.Grays[4]}"
-                          Tag="5"
-                MouseDown="Poke1_MouseDown"
-                    ></local:AutoGrayImage>
-            <local:AutoGrayImage
-                    Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
-                    Width="{Binding ElementName=ImageSize,Path=Value}"
-                    Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source2="{Binding ViewModel.Pokes[5].Image}"
-                IsGary="{Binding ViewModel.Grays[5]}"
-                          Tag="6"
-                MouseDown="Poke1_MouseDown"
-                    ></local:AutoGrayImage>
-            <!--<Border  BorderThickness="2" BorderBrush="{DynamicResource SystemControlPageTextBaseHighBrush}"
-                    Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
-                     Width="{Binding ElementName=ImageSize,Path=Value}"
-                    Height="{Binding ElementName=ImageSize,Path=Value}"
-                    ></Border>-->
+            <Grid>
+                <local:AutoGrayImage
+              Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
+              Width="{Binding ElementName=ImageSize,Path=Value}"
+              Height="{Binding ElementName=ImageSize,Path=Value}"
+              Source2="{Binding ViewModel.Pokes[0].Image}"
+              IsGary="{Binding ViewModel.Grays[0]}"
+              Tag="1"
+              MouseDown="Poke1_MouseDown"/>
+                <Grid
+              
+              Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}">
+
+                    <local:AutoGrayImage
+                  Margin="30,0,0,30"
+                  Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+                  Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+                  Source2="{Binding ViewModel.Pokes[0].TeraPath}"
+                  IsGary="{Binding ViewModel.Grays[0]}"
+                  MouseDown="Poke1_MouseDown"
+                  Tag="1"/>
+                </Grid>
+                <Grid
+              Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}">
+
+                    <local:AutoGrayImage
+                  Margin="20,30,0,0"
+                  Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+                  Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+                  Source2="{Binding ViewModel.Pokes[0].ItemPath}"
+                  IsGary="{Binding ViewModel.Grays[0]}"
+                  MouseDown="Poke1_MouseDown"
+                  Tag="1"/>
+                </Grid>
+
+            </Grid>
+
+            <Grid>
+                <local:AutoGrayImage
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
+   Width="{Binding ElementName=ImageSize,Path=Value}"
+   Height="{Binding ElementName=ImageSize,Path=Value}"
+   Source2="{Binding ViewModel.Pokes[1].Image}"
+   IsGary="{Binding ViewModel.Grays[1]}"
+   Tag="2"
+   MouseDown="Poke1_MouseDown"/>
+                <Grid
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}">
+
+                    <local:AutoGrayImage
+       Margin="30,0,0,30"
+       Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Source2="{Binding ViewModel.Pokes[1].TeraPath}"
+       IsGary="{Binding ViewModel.Grays[1]}"
+       MouseDown="Poke1_MouseDown"
+       Tag="2"/>
+                </Grid>
+                <Grid
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}">
+
+                    <local:AutoGrayImage
+       Margin="20,30,0,0"
+       Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Source2="{Binding ViewModel.Pokes[1].ItemPath}"
+       IsGary="{Binding ViewModel.Grays[1]}"
+       MouseDown="Poke1_MouseDown"
+       Tag="2"/>
+                </Grid>
+
+            </Grid>
+
+            <Grid>
+                <local:AutoGrayImage
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
+   Width="{Binding ElementName=ImageSize,Path=Value}"
+   Height="{Binding ElementName=ImageSize,Path=Value}"
+   Source2="{Binding ViewModel.Pokes[2].Image}"
+   IsGary="{Binding ViewModel.Grays[2]}"
+   Tag="3"
+   MouseDown="Poke1_MouseDown"/>
+                <Grid
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}">
+
+                    <local:AutoGrayImage
+       Margin="30,0,0,30"
+       Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Source2="{Binding ViewModel.Pokes[2].TeraPath}"
+       IsGary="{Binding ViewModel.Grays[2]}"
+       MouseDown="Poke1_MouseDown"
+       Tag="3"/>
+                </Grid>
+                <Grid
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}">
+
+                    <local:AutoGrayImage
+       Margin="20,30,0,0"
+       Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Source2="{Binding ViewModel.Pokes[2].ItemPath}"
+       IsGary="{Binding ViewModel.Grays[2]}"
+       MouseDown="Poke1_MouseDown"
+       Tag="3"/>
+                </Grid>
+
+            </Grid>
+
+            <Grid>
+                <local:AutoGrayImage
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
+   Width="{Binding ElementName=ImageSize,Path=Value}"
+   Height="{Binding ElementName=ImageSize,Path=Value}"
+   Source2="{Binding ViewModel.Pokes[3].Image}"
+   IsGary="{Binding ViewModel.Grays[3]}"
+   Tag="4"
+   MouseDown="Poke1_MouseDown"/>
+                <Grid
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}">
+
+                    <local:AutoGrayImage
+       Margin="30,0,0,30"
+       Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Source2="{Binding ViewModel.Pokes[3].TeraPath}"
+       IsGary="{Binding ViewModel.Grays[3]}"
+       MouseDown="Poke1_MouseDown"
+       Tag="4"/>
+                </Grid>
+                <Grid
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}">
+
+                    <local:AutoGrayImage
+       Margin="20,30,0,0"
+       Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Source2="{Binding ViewModel.Pokes[3].ItemPath}"
+       IsGary="{Binding ViewModel.Grays[3]}"
+       MouseDown="Poke1_MouseDown"
+       Tag="4"/>
+                </Grid>
+
+            </Grid>
+
+            <Grid>
+                <local:AutoGrayImage
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
+   Width="{Binding ElementName=ImageSize,Path=Value}"
+   Height="{Binding ElementName=ImageSize,Path=Value}"
+   Source2="{Binding ViewModel.Pokes[4].Image}"
+   IsGary="{Binding ViewModel.Grays[4]}"
+   Tag="5"
+   MouseDown="Poke1_MouseDown"/>
+                <Grid
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}">
+
+                    <local:AutoGrayImage
+       Margin="30,0,0,30"
+       Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Source2="{Binding ViewModel.Pokes[4].TeraPath}"
+       IsGary="{Binding ViewModel.Grays[4]}"
+       MouseDown="Poke1_MouseDown"
+       Tag="5"/>
+                </Grid>
+                <Grid
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}">
+
+                    <local:AutoGrayImage
+       Margin="20,30,0,0"
+       Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Source2="{Binding ViewModel.Pokes[4].ItemPath}"
+       IsGary="{Binding ViewModel.Grays[4]}"
+       MouseDown="Poke1_MouseDown"
+       Tag="5"/>
+                </Grid>
+
+            </Grid>
+
+            <Grid>
+                <local:AutoGrayImage
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}"
+   Width="{Binding ElementName=ImageSize,Path=Value}"
+   Height="{Binding ElementName=ImageSize,Path=Value}"
+   Source2="{Binding ViewModel.Pokes[5].Image}"
+   IsGary="{Binding ViewModel.Grays[5]}"
+   Tag="6"
+   MouseDown="Poke1_MouseDown"/>
+                <Grid
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}">
+
+                    <local:AutoGrayImage
+       Margin="30,0,0,30"
+       Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Source2="{Binding ViewModel.Pokes[5].TeraPath}"
+       IsGary="{Binding ViewModel.Grays[5]}"
+       MouseDown="Poke1_MouseDown"
+       Tag="6"/>
+                </Grid>
+                <Grid
+   Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource WidthToMargin}}">
+
+                    <local:AutoGrayImage
+       Margin="20,30,0,0"
+       Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+       Source2="{Binding ViewModel.Pokes[5].ItemPath}"
+       IsGary="{Binding ViewModel.Grays[5]}"
+       MouseDown="Poke1_MouseDown"
+       Tag="6"/>
+                </Grid>
+
+            </Grid>
+
         </StackPanel>
         <StackPanel
             x:Name="panel2"
@@ -142,83 +308,221 @@
 
             <Grid>
                 <local:AutoGrayImage
-        Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
-        Width="{Binding ElementName=ImageSize,Path=Value}"
-        Height="{Binding ElementName=ImageSize,Path=Value}"
-    Source2="{Binding ViewModel.Pokes[0].Image}"
-    IsGary="{Binding ViewModel.Grays[0]}"
-              Tag="1"
-    MouseDown="Poke1_MouseDown"/>
+                    Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
+                    Width="{Binding ElementName=ImageSize,Path=Value}"
+                    Height="{Binding ElementName=ImageSize,Path=Value}"
+                    Source2="{Binding ViewModel.Pokes[0].Image}"
+                    IsGary="{Binding ViewModel.Grays[0]}"
+                    Tag="1"
+                    MouseDown="Poke1_MouseDown"/>
                 <Grid
+                    
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}">
-
+                    
                     <local:AutoGrayImage
-    Margin="30,0,0,30"
-    Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
-    Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
-Source2="{Binding ViewModel.Pokes[0].TeraPath}"
-IsGary="{Binding ViewModel.Grays[0]}"
-          Tag="1"/>
+                        Margin="30,0,0,30"
+                        Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+                        Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+                        Source2="{Binding ViewModel.Pokes[0].TeraPath}"
+                        IsGary="{Binding ViewModel.Grays[0]}"
+                        MouseDown="Poke1_MouseDown"
+                        Tag="1"/>
                 </Grid>
                 <Grid
                     Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}">
 
                     <local:AutoGrayImage
-    Margin="20,30,0,0"
-    Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
-    Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
-Source2="{Binding ViewModel.Pokes[0].ItemPath}"
-IsGary="{Binding ViewModel.Grays[0]}"
-          Tag="1"/>
+                        Margin="20,30,0,0"
+                        Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+                        Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+                        Source2="{Binding ViewModel.Pokes[0].ItemPath}"
+                        IsGary="{Binding ViewModel.Grays[0]}"
+                        MouseDown="Poke1_MouseDown"
+                        Tag="1"/>
                 </Grid>
 
             </Grid>
-            
-            <local:AutoGrayImage
-                    Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
-                    Width="{Binding ElementName=ImageSize,Path=Value}"
-                    Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source2="{Binding ViewModel.Pokes[1].Image}"
-                IsGary="{Binding ViewModel.Grays[1]}"
-                          Tag="2"
-                MouseDown="Poke1_MouseDown"
-                    ></local:AutoGrayImage>
-            <local:AutoGrayImage
-                    Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
-                    Width="{Binding ElementName=ImageSize,Path=Value}"
-                    Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source2="{Binding ViewModel.Pokes[2].Image}"
-                IsGary="{Binding ViewModel.Grays[2]}"
-                          Tag="3"
-                MouseDown="Poke1_MouseDown"
-                    ></local:AutoGrayImage>
-            <local:AutoGrayImage
-                    Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
-                    Width="{Binding ElementName=ImageSize,Path=Value}"
-                    Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source2="{Binding ViewModel.Pokes[3].Image}"
-                IsGary="{Binding ViewModel.Grays[3]}"
-                          Tag="4"
-                MouseDown="Poke1_MouseDown"
-                    ></local:AutoGrayImage>
-            <local:AutoGrayImage
-                    Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
-                    Width="{Binding ElementName=ImageSize,Path=Value}"
-                    Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source2="{Binding ViewModel.Pokes[4].Image}"
-                IsGary="{Binding ViewModel.Grays[4]}"
-                          Tag="5"
-                MouseDown="Poke1_MouseDown"
-                    ></local:AutoGrayImage>
-            <local:AutoGrayImage
-                    Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
-                    Width="{Binding ElementName=ImageSize,Path=Value}"
-                    Height="{Binding ElementName=ImageSize,Path=Value}"
-                Source2="{Binding ViewModel.Pokes[5].Image}"
-                IsGary="{Binding ViewModel.Grays[5]}"
-                          Tag="6"
-                MouseDown="Poke1_MouseDown"
-                    ></local:AutoGrayImage>
+
+            <Grid>
+                <local:AutoGrayImage
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
+         Width="{Binding ElementName=ImageSize,Path=Value}"
+         Height="{Binding ElementName=ImageSize,Path=Value}"
+         Source2="{Binding ViewModel.Pokes[1].Image}"
+         IsGary="{Binding ViewModel.Grays[1]}"
+         Tag="2"
+         MouseDown="Poke1_MouseDown"/>
+                <Grid
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}">
+
+                    <local:AutoGrayImage
+             Margin="30,0,0,30"
+             Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Source2="{Binding ViewModel.Pokes[1].TeraPath}"
+             IsGary="{Binding ViewModel.Grays[1]}"
+             MouseDown="Poke1_MouseDown"
+             Tag="2"/>
+                </Grid>
+                <Grid
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}">
+
+                    <local:AutoGrayImage
+             Margin="20,30,0,0"
+             Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Source2="{Binding ViewModel.Pokes[1].ItemPath}"
+             IsGary="{Binding ViewModel.Grays[1]}"
+             MouseDown="Poke1_MouseDown"
+             Tag="2"/>
+                </Grid>
+
+            </Grid>
+
+            <Grid>
+                <local:AutoGrayImage
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
+         Width="{Binding ElementName=ImageSize,Path=Value}"
+         Height="{Binding ElementName=ImageSize,Path=Value}"
+         Source2="{Binding ViewModel.Pokes[2].Image}"
+         IsGary="{Binding ViewModel.Grays[2]}"
+         Tag="3"
+         MouseDown="Poke1_MouseDown"/>
+                <Grid
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}">
+
+                    <local:AutoGrayImage
+             Margin="30,0,0,30"
+             Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Source2="{Binding ViewModel.Pokes[2].TeraPath}"
+             IsGary="{Binding ViewModel.Grays[2]}"
+             MouseDown="Poke1_MouseDown"
+             Tag="3"/>
+                </Grid>
+                <Grid
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}">
+
+                    <local:AutoGrayImage
+             Margin="20,30,0,0"
+             Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Source2="{Binding ViewModel.Pokes[2].ItemPath}"
+             IsGary="{Binding ViewModel.Grays[2]}"
+             MouseDown="Poke1_MouseDown"
+             Tag="3"/>
+                </Grid>
+
+            </Grid>
+
+            <Grid>
+                <local:AutoGrayImage
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
+         Width="{Binding ElementName=ImageSize,Path=Value}"
+         Height="{Binding ElementName=ImageSize,Path=Value}"
+         Source2="{Binding ViewModel.Pokes[3].Image}"
+         IsGary="{Binding ViewModel.Grays[3]}"
+         Tag="4"
+         MouseDown="Poke1_MouseDown"/>
+                <Grid
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}">
+
+                    <local:AutoGrayImage
+             Margin="30,0,0,30"
+             Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Source2="{Binding ViewModel.Pokes[3].TeraPath}"
+             IsGary="{Binding ViewModel.Grays[3]}"
+             MouseDown="Poke1_MouseDown"
+             Tag="4"/>
+                </Grid>
+                <Grid
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}">
+
+                    <local:AutoGrayImage
+             Margin="20,30,0,0"
+             Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Source2="{Binding ViewModel.Pokes[3].ItemPath}"
+             IsGary="{Binding ViewModel.Grays[3]}"
+             MouseDown="Poke1_MouseDown"
+             Tag="4"/>
+                </Grid>
+
+            </Grid>
+
+            <Grid>
+                <local:AutoGrayImage
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
+         Width="{Binding ElementName=ImageSize,Path=Value}"
+         Height="{Binding ElementName=ImageSize,Path=Value}"
+         Source2="{Binding ViewModel.Pokes[4].Image}"
+         IsGary="{Binding ViewModel.Grays[4]}"
+         Tag="5"
+         MouseDown="Poke1_MouseDown"/>
+                <Grid
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}">
+
+                    <local:AutoGrayImage
+             Margin="30,0,0,30"
+             Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Source2="{Binding ViewModel.Pokes[4].TeraPath}"
+             IsGary="{Binding ViewModel.Grays[4]}"
+             MouseDown="Poke1_MouseDown"
+             Tag="5"/>
+                </Grid>
+                <Grid
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}">
+
+                    <local:AutoGrayImage
+             Margin="20,30,0,0"
+             Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Source2="{Binding ViewModel.Pokes[4].ItemPath}"
+             IsGary="{Binding ViewModel.Grays[4]}"
+             MouseDown="Poke1_MouseDown"
+             Tag="5"/>
+                </Grid>
+
+            </Grid>
+
+            <Grid>
+                <local:AutoGrayImage
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}"
+         Width="{Binding ElementName=ImageSize,Path=Value}"
+         Height="{Binding ElementName=ImageSize,Path=Value}"
+         Source2="{Binding ViewModel.Pokes[5].Image}"
+         IsGary="{Binding ViewModel.Grays[5]}"
+         Tag="6"
+         MouseDown="Poke1_MouseDown"/>
+                <Grid
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}">
+
+                    <local:AutoGrayImage
+             Margin="30,0,0,30"
+             Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Source2="{Binding ViewModel.Pokes[5].TeraPath}"
+             IsGary="{Binding ViewModel.Grays[5]}"
+             MouseDown="Poke1_MouseDown"
+             Tag="6"/>
+                </Grid>
+                <Grid
+         Margin="{Binding ElementName=Dani, Path=Value,Converter={StaticResource HeightToMargin}}">
+
+                    <local:AutoGrayImage
+             Margin="20,30,0,0"
+             Width="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Height="{Binding ElementName=ImageSize,Path=Value,Converter={StaticResource MultiplierConverter}}"
+             Source2="{Binding ViewModel.Pokes[5].ItemPath}"
+             IsGary="{Binding ViewModel.Grays[5]}"
+             MouseDown="Poke1_MouseDown"
+             Tag="6"/>
+                </Grid>
+
+            </Grid>
+
         </StackPanel>
     </Grid>
 </UserControl>

@@ -95,12 +95,20 @@
 
                 </ui:AutoSuggestBox>
             </StackPanel>
-
-            <Button 
+            <StackPanel
                 Margin="0,20,0,0"
-                Width="100" HorizontalAlignment="Center" Click="Button_Click">
-                确认
-            </Button>
+                Orientation="Horizontal"
+                >
+                <Button 
+    Width="100" HorizontalAlignment="Center" Click="Button_Click">
+                    确认
+                </Button>
+                <Button 
+    Width="100" HorizontalAlignment="Center" Click="Button_Click_1">
+                    重置
+                </Button>
+            </StackPanel>
+            
         </StackPanel>
 
         <ScrollViewer  Grid.Row="1">
